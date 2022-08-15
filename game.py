@@ -19,7 +19,7 @@ class TICTACTOE:
         return False
 
     def click(self, row, col):
-        if self.btnMap[row][col].cget("text") == "":
+        if self.btnMap[row][col].cget("text") == " ":
             val = 1 if self.counter % 2 == 0 else -1
             player = "X" if self.counter % 2 == 0 else "O"
             self.table[row][col] = val
@@ -42,19 +42,19 @@ class TICTACTOE:
             self.table = np.zeros(shape=(3, 3), dtype=np.int8)
             for row in range(3):
                 for col in range(3):
-                    self.btnMap[row][col].configure(text="")
+                    self.btnMap[row][col].configure(text=" ")
         else:
             self.app.destroy()
 
     def board(self):
         self.app = Tk()
         self.app.geometry("500x500")
-        self.app.title("SUDOKU")
+        self.app.title("TIC TAC TOE")
         for row in range(3):
             for col in range(3):
                 btn = Button(
                     self.app,
-                    text="",
+                    text=" ",
                     bg="#F9FBFF",
                     fg="#5c6274",
                     font=("Calibiri", 36, "bold"),
